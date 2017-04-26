@@ -2,19 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RestangularModule} from 'ngx-restangular';
 
 import { AppComponent } from './app.component';
 import { BuscadorComponent } from './buscador.component';
 import { DesambiguacionComponent } from './desambiguacion.component';
 import { ContenidoComponent } from './contenido.component';
 import { SeccionesComponent } from './secciones.component';
-
-export function RestangularConfigFactory (RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost:8080/rest/api/');
-  //RestangularProvider.setDefaultHeaders('Access-Control-Allow-Origin', '*');
-  //RestangularProvider.setDefaultHeaders('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-}
+import {ArticleService} from './article.service';
 
 @NgModule({
   declarations: [
@@ -27,10 +21,9 @@ export function RestangularConfigFactory (RestangularProvider) {
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
-    RestangularModule.forRoot(RestangularConfigFactory)
+    HttpModule
   ],
-  providers: [],
+  providers: [ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

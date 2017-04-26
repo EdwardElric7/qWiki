@@ -1,21 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import { Restangular } from 'ngx-restangular';
+import { ArticleService } from './article.service';
+import {Article} from './article';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ArticleService]
 })
 
 export class AppComponent implements OnInit {
-  article;
-  articulo;
-  search: String;
-  constructor(private restangular: Restangular) {
+  article: Article;
+  constructor(private articleService: ArticleService) {
   }
-  ngOnInit() {
-    this.article = this.restangular.one('potato').get();
-    alert(this.article);
+  getArticle(): void {
+    this.articleService.getArticle('Society').then(article => {
+      console.log(JSON.stringify(article));
+    });
+  }
+  ngOnInit(): void {
+    this.getArticle();
   }
 }
