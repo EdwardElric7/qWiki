@@ -22,9 +22,7 @@ export class ContenidoComponent implements OnInit, OnChanges {
 
   }
 
-
   ngOnInit(): void {
-
 
   }
 
