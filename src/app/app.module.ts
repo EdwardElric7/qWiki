@@ -6,9 +6,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BuscadorComponent } from './buscador.component';
-import { DesambiguacionComponent } from './desambiguacion.component';
 import { ContenidoComponent } from './contenido.component';
 import { SeccionesComponent } from './secciones.component';
+import {resultadosBusquedaComponent} from "./resultadosBusqueda.component";
 
 /*export function RestangularConfigFactory (RestangularProvider) {
   RestangularProvider.setBaseUrl('http://localhost:8080/rest/api/');
@@ -20,7 +20,7 @@ import { SeccionesComponent } from './secciones.component';
   declarations: [
     AppComponent,
     BuscadorComponent,
-    DesambiguacionComponent,
+    resultadosBusquedaComponent,
     ContenidoComponent,
     SeccionesComponent
   ],
