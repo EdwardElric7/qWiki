@@ -1,100 +1,102 @@
-/* You can add global styles to this file, and also import other style files */
-html {
-
-}
-
 body {
   background-color: #f6f6f6;
-  margin: auto;
-  padding-left: 100px;
-  padding-right: 100px;
-  height: 100vh;
-
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-div#header {
-  display: flex;
-  flex-direction: row;     /* make main axis horizontal (default setting) */
-  justify-content: center; /* center items horizontally, in this case */
-  align-items: center;
+h2 { /* Sección principal (1) */
+  
+}
 
+h3 {/* Subsección (1.1)*/
+  
+}
+
+h4 {/* Sub-subsección (1.1.1) */
+  
+}
+
+p {
+  
+}
+
+#header {
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
   height: 50px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #AAA;
+  
+  text-align: center;
 }
 
-span#logo {
-  padding-top: 4px;
+#logo {
+  display: inline-block;
 
-  font-family: Hoefler Text,Baskerville Old Face,Garamond,Times New Roman,serif;
+  font-family: Hoefler Text, Baskerville Old Face, Garamond, Times New Roman, serif;
   font-size: 22pt;
 }
 
-div#header input#search {
-  display:flex;
-  flex-grow: 1;
+input {
+  font-family: sans-serif;
+  font-size: 12pt;
+}
 
-  margin: 20px;
+/* TODO asignar una ID */
+input[type="text"] {
+  display: inline-block;
   height: 30px;
-
-  font-family: sans-serif;
-  font-size: 12pt;
 }
 
-div#header input#submit {
+/* TODO asignar una ID */
+input[type="submit"] {
+  display: inline-block;
   height: 38px;
-
-  font-family: sans-serif;
-  font-size: 12pt;
 }
 
-div#content {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin-bottom: 15px;
+#navigation {
+  position: fixed;
+  top: 50px;
+  bottom: 0px;
+  
+  width: 25%;
+  overflow-y: auto;
+  
+  border: 1px solid #CCC;
+  background-color: #EEE;
+  box-shadow: -3px 0 3px -3px #333;
+}
 
+#navigation ul {
+  padding-left: 20px;
+}
+
+#navigation li {
+  font-family: sans-serif;
+  font-size: 10.5pt;
+}
+
+.div_r {
+  float: none !important; /* TODO quitar estilo float inline */
+  position: relative;
+  left: 25%;
+  width: 74% !important; /* TODO quitar estilo inline */
+  padding-left: 20px;
+  padding-right: 20px;
+  
   border-style: solid;
   border-width: 1px;
   border-color: #CCC;
-  box-shadow: -3px 0 3px -3px #333, 3px 0 3px -3px #333;
-}
-
-div#navigation {
-  height: 100%;
-  width: 240px;
-
-  background-color: #eee;
-}
-
-div#text {
-  height: 100%;
-  padding: 10px;
 }
 
 li {
   list-style: none;
 }
 
-/* https://www.w3schools.com/howto/howto_js_accordion.asp */
-input {
-  color: #444;
-  cursor: pointer;
-  padding: 10px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-input.active, input:hover {
-  background-color: #ddd;
-}
-
-div.panel {
-  display: none;
-  padding-left: 10px;
+li > a {
+  display: inline-block;
+  line-height: 24px;
 }
