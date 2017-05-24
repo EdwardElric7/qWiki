@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ArticleService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  private articleUrl = 'http://localhost:8080/rest/api';
+  private articleUrl = 'http://localhost:8080/wiki';
 
   constructor(private http: Http) {
   }

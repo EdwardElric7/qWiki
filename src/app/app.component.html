@@ -1,6 +1,6 @@
-<!--<app-buscador></app-buscador>-->
-
-<app-desambiguacion [listLink]="listLink" [listTitle]="listTitle"></app-desambiguacion>
-
-<!--<app-contenido [article]="article" [list]="list" > </app-contenido>-->
-
+<app-search-bar (search)="getArticle($event)"></app-search-bar>
+<div ngSwitch="{{article.type}}">
+  <app-search-results *ngSwitchCase="3" [article]="article" (search)="getArticle($event)"></app-search-results>
+  <app-content *ngSwitchCase="2" [article]="article"></app-content>
+  <app-no-results *ngSwitchCase="1" [searchTerm]="searchTerm"></app-no-results>
+</div>
