@@ -1,5 +1,5 @@
 <div id="header">
   <span id="logo">qWiki</span>
-  <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm"/>
-  <input class="form-control" type="submit" (click)="searchArticle(searchTerm)" id="submit" value="Summarize" />
+  <input id="searchBox" class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm"/>
+  <input id="summarizeButton" class="form-control" type="submit" (click)="searchArticle(searchTerm)" id="submit" value="Summarize" />
 </div>

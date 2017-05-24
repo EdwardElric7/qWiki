@@ -1,29 +1,30 @@
 <div *ngIf="article">
 
   <div id="navigation" class="div_l">
-    <p>Title: {{article['title']}}</p>
+    <span id="tocHeader">Contents</span>
 
     <ul>
       <li *ngFor="let section of article['sections']['sortedSectionNumbers'];"
           [class.selected]="section === selectedSection"
-          (click)="onSelect(section)">
+          (click)="onSelect(section)"
+          class="depth{{article['sections']['sectionMap'][section]['depth']}}">
 
-        <span>{{section}}  -</span><a href="#{{section}}">{{article['sections']['sectionMap'][section]['name']}}</a>
+        <a href="#{{section}}" innerHTML="{{section}} {{article['sections']['sectionMap'][section]['name']}}"></a>
       </li>
     </ul>
   </div>
 </div>
 
 <div class="div_r">
-
+  <h1>{{article['title']}}</h1>
+  <hr>
   <p>Artículo original de Wikipedia: <a href="https://en.wikipedia.org/wiki/{{article['title']}}">{{article['title']}}</a></p>
 
   <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
     <a id="{{section}}">
-      <h2>{{article['sections']['sectionMap'][section]['name']}}</h2>
+      <h2 innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
     </a>
-    <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}">
-      </p>
+    <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}"></p>
 
   </li>
 
