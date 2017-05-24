@@ -3,8 +3,6 @@
   <div id="navigation" class="div_l">
     <p>Title: {{article['title']}}</p>
 
-    <p>Artículo original de Wikipedia: <a href="https://en.wikipedia.org/wiki/{{article['title']}}">{{article['title']}}</a></p>
-
     <ul>
       <li *ngFor="let section of article['sections']['sortedSectionNumbers'];"
           [class.selected]="section === selectedSection"
@@ -17,6 +15,9 @@
 </div>
 
 <div class="div_r">
+
+  <p>Artículo original de Wikipedia: <a href="https://en.wikipedia.org/wiki/{{article['title']}}">{{article['title']}}</a></p>
+
   <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
     <a id="{{section}}">
       <h2>{{article['sections']['sectionMap'][section]['name']}}</h2>
