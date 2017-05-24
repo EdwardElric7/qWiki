@@ -18,7 +18,7 @@
 
 <div class="div_r">
   <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
-    <a name="{{article['sections']['sectionMap'][section]['name']}}">
+    <a id="{{section}}">
       <h2>{{article['sections']['sectionMap'][section]['name']}}</h2>
     </a>
     <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}">
