@@ -25,13 +25,15 @@
 
   <hr>
 
-  <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
-    <span id="{{section}}" class="anchor"></span>
-    <h2 *ngIf="section !== '0'" class="depth{{article['sections']['sectionMap'][section]['depth']}}" innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
+  <ul>
+    <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
+      <span id="{{section}}" class="anchor"></span>
+      <h2 *ngIf="section !== '0'" class="depth{{article['sections']['sectionMap'][section]['depth']}}" innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
 
-    <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}"></p>
+      <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}"></p>
 
-  </li>
+    </li>
+  </ul>
 
   <div *ngIf="selectedSection">
    <!-- <p>parrafo{{article["sections"]["sectionMap"][selectedSection]["content"] }}</p>-->

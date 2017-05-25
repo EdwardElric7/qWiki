@@ -9,7 +9,7 @@ import {Component, Output, EventEmitter, ViewChild, ElementRef, OnInit} from '@a
 export class SearchBarComponent implements OnInit {
   @Output() search = new EventEmitter();
 
-  @ViewChild('searchBox') searchBox: ElementRef
+  @ViewChild('searchBox') searchBox: ElementRef;
 
   ngOnInit() {
     this.searchBox.nativeElement.focus();
