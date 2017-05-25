@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import { ArticleService } from './article.service';
+import {ArticleService} from './article.service';
 import {Article} from './article';
 import 'rxjs/add/operator/toPromise';
 
@@ -18,18 +18,24 @@ export class AppComponent {
   }
   getArticle(searchTerm): void {
     this.searchTerm = searchTerm;
-    this.articleService.getArticle(this.searchTerm).then(article => {
+    this.articleService.getArticle('wiki/' + this.searchTerm).then(article => {
       console.log(JSON.stringify(article));
       this.article = article;
       const firstParam = JSON.stringify(this.article).split('"')[1];
-      console.log(firstParam);
       if (firstParam === 'title') {
         this.article.type = 2;
       } else if (firstParam === 'results' && this.article['size'] !== 0) {
-        this.article.type = 3;
+        this.articleService.getArticle('info/' + this.searchTerm).then(info => {
+          if (info['disambiguation']) {
+            this.article.type = 3;
+          } else {
+            this.article.type = 4;
+          }
+        });
       } else {
         this.article.type = 1;
       }
+      console.log(this.article.type);
     });
   }
 

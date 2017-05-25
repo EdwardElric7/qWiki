@@ -17,12 +17,17 @@
 
 <div class="div_r">
   <h1>{{article['title']}}</h1>
+  <a href="https://en.wikipedia.org/wiki/{{article['title']}}" class="exLink" rel="nofollow" target="_blank">
+    <span id="originalLink">
+      Ir al original
+    </span>
+  </a>
+
   <hr>
-  <p>Artículo original de Wikipedia: <a href="https://en.wikipedia.org/wiki/{{article['title']}}">{{article['title']}}</a></p>
 
   <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
-    <a id="{{section}}">
-      <h2 innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
+    <a id="{{section}}" class="anchor">
+      <h2 class="depth{{article['sections']['sectionMap'][section]['depth']}}" innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
     </a>
     <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}"></p>
 
