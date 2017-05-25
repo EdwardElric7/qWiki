@@ -1,5 +1,5 @@
 <div id="header">
   <span id="logo">qWiki</span>
-  <input id="searchBox" class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="searchArticle(searchTerm)" autofocus/>
+  <input #searchBox id="searchBox" class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" (keydown.enter)="searchArticle(searchTerm)"/>
   <input id="summarizeButton" class="form-control" type="submit" (click)="searchArticle(searchTerm)" id="submit" value="Summarize" />
 </div>

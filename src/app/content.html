@@ -19,16 +19,16 @@
   <h1>{{article['title']}}</h1>
   <a href="https://en.wikipedia.org/wiki/{{article['title']}}" class="exLink" rel="nofollow" target="_blank">
     <span id="originalLink">
-      Ir al original
+      See on Wikipedia
     </span>
   </a>
 
   <hr>
 
   <li *ngFor="let section of article['sections']['sortedSectionNumbers'];">
-    <a id="{{section}}" class="anchor">
-      <h2 class="depth{{article['sections']['sectionMap'][section]['depth']}}" innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
-    </a>
+    <span id="{{section}}" class="anchor"></span>
+    <h2 *ngIf="section !== '0'" class="depth{{article['sections']['sectionMap'][section]['depth']}}" innerHTML="{{article['sections']['sectionMap'][section]['name']}}"></h2>
+
     <p innerHTML="{{article['sections']['sectionMap'][section]['displayedContent']}}"></p>
 
   </li>

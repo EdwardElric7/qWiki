@@ -19,7 +19,6 @@ export class AppComponent {
   getArticle(searchTerm): void {
     this.searchTerm = searchTerm;
     this.articleService.getArticle('wiki/' + this.searchTerm).then(article => {
-      console.log(JSON.stringify(article));
       this.article = article;
       const firstParam = JSON.stringify(this.article).split('"')[1];
       if (firstParam === 'title') {
@@ -35,7 +34,6 @@ export class AppComponent {
       } else {
         this.article.type = 1;
       }
-      console.log(this.article.type);
     });
   }
 

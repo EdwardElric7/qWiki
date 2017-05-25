@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, ViewChild, ElementRef, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-search-bar',
@@ -6,8 +6,14 @@ import {Component, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class SearchBarComponent {
+export class SearchBarComponent implements OnInit {
   @Output() search = new EventEmitter();
+
+  @ViewChild('searchBox') searchBox: ElementRef
+
+  ngOnInit() {
+    this.searchBox.nativeElement.focus();
+  }
 
   searchArticle(searchTerm) {
     if (searchTerm === 'https://en.wikipedia.org/wiki/Queen') {

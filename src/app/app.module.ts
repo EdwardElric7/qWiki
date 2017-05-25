@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './searchBar.component';
@@ -20,7 +21,13 @@ import {NoResultsComponent} from './noResults.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'app.component',
+        component: AppComponent
+      }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

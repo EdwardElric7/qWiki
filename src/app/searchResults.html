@@ -2,13 +2,13 @@
     <h4>Search results:</h4>
     <ul>
       <li *ngFor="let result of article['results']">
+        <div class="searchResult">
         · <a href="#" (click)="searchArticle(result['link'].split('/')[4])">
-            <div class="searchResult">
               <span class="link">
                 {{ result['title'] }}
               </span>
-            </div>
           </a> - {{ result['description'] }}
+        </div>
       </li>
     </ul>
   </div>
