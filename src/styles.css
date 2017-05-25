@@ -5,20 +5,40 @@ body {
   overflow-x: hidden;
 }
 
+hr {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+h1 { /* Título del artículo */
+  margin-bottom: 0px;
+  font-family: 'Cambria', 'Times', serif;
+  color: #323232;
+}
+
 h2 { /* Sección principal (1) */
-  
+  margin-bottom: 0px;
+  font-family: 'Cambria', 'Times', serif;
+  color: #323232;
 }
 
 h3 {/* Subsección (1.1)*/
-  
+  margin-bottom: 0px;
 }
 
 h4 {/* Sub-subsección (1.1.1) */
-  
+  margin-bottom: 0px;
 }
 
 p {
-  
+  font-family: sans-serif;
+  font-size: 11pt;
+  color: #545454;
+}
+
+p > a {
+  text-decoration: none;
+  color: #2A5DB0;
 }
 
 #header {
@@ -57,6 +77,14 @@ input[type="submit"] {
   height: 38px;
 }
 
+#tocHeader {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
 #navigation {
   position: fixed;
   top: 50px;
@@ -79,9 +107,23 @@ input[type="submit"] {
   font-size: 10.5pt;
 }
 
+#navigation li a {
+  text-decoration: none;
+  color: #2A5DB0;
+}
+
+.depth2 { padding-left: 0; }
+.depth3 { padding-left: 15px; }
+.depth4 { padding-left: 30px; }
+.depth5 { padding-left: 45px; }
+.depth6 { padding-left: 45px; }
+.depth7 { padding-left: 45px; }
+.depth8 { padding-left: 45px; }
+
 .div_r {
   float: none !important; /* TODO quitar estilo float inline */
   position: relative;
+  top: 50px;
   left: 25%;
   width: 74% !important; /* TODO quitar estilo inline */
   padding-left: 20px;
@@ -99,4 +141,12 @@ li {
 li > a {
   display: inline-block;
   line-height: 24px;
+}
+
+/* Fix */
+.anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
 }
