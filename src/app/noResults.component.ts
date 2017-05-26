@@ -1,5 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {Article} from './article';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-no-results',

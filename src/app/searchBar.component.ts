@@ -16,7 +16,7 @@ export class SearchBarComponent implements OnInit {
   }
 
   searchArticle(searchTerm) {
-    if (searchTerm === 'https://en.wikipedia.org/wiki/Queen') {
+    if (searchTerm.match('https://en.wikipedia.org/wiki/')) {
       searchTerm = searchTerm.split('/')[4];
     }
 

@@ -1,6 +1,6 @@
 <app-search-bar (search)="getArticle($event)"></app-search-bar>
-<div ngSwitch="{{article.type}}">
-  <app-search-results *ngSwitchCase="3" [article]="article" (search)="getArticle($event)"></app-search-results>
-  <app-content *ngSwitchCase="2" [article]="article"></app-content>
-  <app-no-results *ngSwitchCase="1" [searchTerm]="searchTerm"></app-no-results>
+<div>
+  <app-search-results *ngIf="article.type === 3 || article.type === 4" [article]="article" (search)="getArticle($event)"></app-search-results>
+  <app-content *ngIf="article.type === 2" [article]="article"></app-content>
+  <app-no-results *ngIf="article.type === 1" [searchTerm]="searchTerm"></app-no-results>
 </div>

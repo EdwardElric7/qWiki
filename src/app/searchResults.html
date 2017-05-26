@@ -1,13 +1,14 @@
  <div id="searchResults">
-    <h4>Search results:</h4>
+    <h2>Search results:</h2>
     <ul>
       <li *ngFor="let result of article['results']">
-        <div class="searchResult">
-        · <a href="#" (click)="searchArticle(result['link'].split('/')[4])">
+        <div *ngIf="article.type === 4 || (article.type === 3 && result !== article['results'][0])" class="searchResult">
+          <a href="#" (click)="searchArticle(result['link'].split('/')[4])">
               <span class="link">
                 {{ result['title'] }}
               </span>
-          </a> - {{ result['description'] }}
+          </a>
+          {{ result['description'] }}
         </div>
       </li>
     </ul>
