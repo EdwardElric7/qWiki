@@ -1,6 +1,7 @@
-import {Component, Output, EventEmitter, ViewChild, ElementRef, OnInit, Injectable} from '@angular/core';
-import 'rxjs/add/operator/toPromise';
-import {Headers, Http} from "@angular/http";
+import {Component, Output, EventEmitter, ViewChild, ElementRef, OnInit, Inject} from '@angular/core';
+
+import { Router, ActivatedRoute } from '@angular/router';
+import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-search-bar',
@@ -8,19 +9,25 @@ import {Headers, Http} from "@angular/http";
   styleUrls: ['./app.component.css']
 })
 
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent implements OnInit{
+
+
+  constructor(@Inject(DOCUMENT) private document: any) {
+    console.log(this.document.location.pathname.split("/").length);
+    for(let s of this.document.location.pathname.split("/")){
+      console.log(s.toString());
+    }
+  }
+
   @Output() search = new EventEmitter();
 
   @ViewChild('searchBox') searchBox: ElementRef;
 
-  auto: Auto = new Auto();
-  searchTerm: string;
-
-
-  constructor(private autoService: AutoService){}
-
   ngOnInit() {
     this.searchBox.nativeElement.focus();
+    if(this.document.location.pathname.split("/").length ==3 ){
+      this.search.next(this.document.location.pathname.split("/")[2]);
+    }
   }
 
   searchArticle(searchTerm) {
@@ -28,36 +35,11 @@ export class SearchBarComponent implements OnInit {
       searchTerm = searchTerm.split('/')[4];
     }
 
-    this.search.next(searchTerm)
+    this.search.next(searchTerm);
   }
 
-  searchAuto(searchTerm) {
-    this.searchTerm = searchTerm;
-    this.autoService.getAuto('auto/' + this.searchTerm).then(auto => {
-      this.auto = auto;
-      console.log(JSON.stringify(this.auto));
-    });
-  }
+
+
 }
 
-class Auto{}
 
-@Injectable()
-class AutoService{
-  private headers = new Headers({'Content-Type': 'application/json'});
-  private articleUrl = 'http://localhost:8080';
-
-
-  constructor(private http: Http) {
-  }
-  getAuto(search: String): Promise<Auto> {
-    const url = `${this.articleUrl}/${search}`;
-    return this.http.get(url).toPromise().then(response => response.json() as Auto)
-      .catch(this.handleError);
-  }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
-  }
-}

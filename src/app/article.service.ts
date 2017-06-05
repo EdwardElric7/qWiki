@@ -21,9 +21,5 @@ export class ArticleService {
     return Promise.reject(error.message || error);
   }
 
-  getArticleJ(search: String): Promise<JSON> {
-    const url = `${this.articleUrl}/${search}`;
-    return this.http.get(url).toPromise().then(response => response.json())
-      .catch(this.handleError);
-  }
+
 }
