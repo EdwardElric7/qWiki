@@ -10,6 +10,11 @@ import {Article} from './article';
 export class ContentComponent {
    @Input() article: Article;
    selectedSection: number;
+   actualPath: String;
+  constructor(){
+    this.actualPath= window.location.toString().split("/")[3]+"/"+window.location.toString().split("/")[4];
+    console.log(this.actualPath);
+  }
 
    onSelect(section: number): void {
      this.selectedSection = section;

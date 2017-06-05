@@ -9,7 +9,7 @@
           (click)="onSelect(section)"
           class="depth{{article['sections']['sectionMap'][section]['depth']}}">
 
-        <a href="#{{section}}" innerHTML="{{section}} {{article['sections']['sectionMap'][section]['name']}}"></a>
+        <a href="{{actualPath}}#{{section}}" innerHTML="{{section}} {{article['sections']['sectionMap'][section]['name']}}"></a>
       </li>
     </ul>
   </div>

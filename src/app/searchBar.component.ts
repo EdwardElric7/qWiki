@@ -1,6 +1,4 @@
 import {Component, Output, EventEmitter, ViewChild, ElementRef, OnInit, Inject} from '@angular/core';
-
-import { Router, ActivatedRoute } from '@angular/router';
 import { DOCUMENT } from '@angular/platform-browser';
 
 @Component({
@@ -11,13 +9,13 @@ import { DOCUMENT } from '@angular/platform-browser';
 
 export class SearchBarComponent implements OnInit{
 
-
   constructor(@Inject(DOCUMENT) private document: any) {
     console.log(this.document.location.pathname.split("/").length);
     for(let s of this.document.location.pathname.split("/")){
       console.log(s.toString());
     }
   }
+
 
   @Output() search = new EventEmitter();
 
@@ -34,12 +32,11 @@ export class SearchBarComponent implements OnInit{
     if (searchTerm.match('https://en.wikipedia.org/wiki/')) {
       searchTerm = searchTerm.split('/')[4];
     }
-
     this.search.next(searchTerm);
   }
 
 
-
+s
 }
 
 
