@@ -10,10 +10,12 @@ import {Article} from './article';
 export class ContentComponent {
    @Input() article: Article;
    selectedSection: number;
-   actualPath: String;
+   actualPath: String = "";
   constructor(){
-    this.actualPath= window.location.toString().split("/")[3]+"/"+window.location.toString().split("/")[4];
-    console.log(this.actualPath);
+    if(window.location.toString().match("wiki")){
+      this.actualPath= window.location.toString().split("/")[3]+"/"+window.location.toString().split("/")[4];
+    }
+    console.log("path= "+this.actualPath);
   }
 
    onSelect(section: number): void {
