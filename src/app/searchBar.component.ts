@@ -10,8 +10,8 @@ import { DOCUMENT } from '@angular/platform-browser';
 export class SearchBarComponent implements OnInit{
 
   constructor(@Inject(DOCUMENT) private document: any) {
-    console.log(this.document.location.pathname.split("/").length);
-    for(let s of this.document.location.pathname.split("/")){
+    console.log(this.document.location.pathname.split('/').length);
+    for (let s of this.document.location.pathname.split('/')){
       console.log(s.toString());
     }
   }

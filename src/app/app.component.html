@@ -3,7 +3,4 @@
   <app-search-results *ngIf="article.type === 3 || article.type === 4" [article]="article" (search)="getArticle($event)"></app-search-results>
   <app-content *ngIf="article.type === 2" [article]="article"></app-content>
   <app-no-results *ngIf="article.type === 1" [searchTerm]="searchTerm"></app-no-results>
-
-
-
 </div>
