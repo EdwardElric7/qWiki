@@ -18,8 +18,8 @@ export class AppComponent {
   constructor(private articleService: ArticleService, private titleService: Title ) {
   }
   getArticle(searchTerm): void {
-    this.searchTerm = searchTerm.trim();
-    this.articleService.getArticle('wiki/' + this.searchTerm).then(article => {
+    this.searchTerm = searchTerm;
+    this.articleService.getArticle('wiki/' + this.searchTerm.trim()).then(article => {
       this.article = article;
       const firstParam = JSON.stringify(this.article).split('"')[1];
       if (firstParam === 'title') {

@@ -33,8 +33,11 @@ export class SearchBarComponent implements OnInit {
 
   getAutocompleteResults(searchTerm): void {
     this.searchTerm = searchTerm;
+    if (this.searchTerm === undefined) {
+      this.searchTerm = '';
+    }
     if (this.searchTerm !== '') {
-      this.autocompleteService.getResults('auto/' + this.searchTerm).then(autocompleteList => {
+      this.autocompleteService.getResults('auto/' + this.searchTerm.trim()).then(autocompleteList => {
         this.autocompleteList = autocompleteList;
       });
     } else {
