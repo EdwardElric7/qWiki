@@ -6,8 +6,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SearchBarComponent } from './searchBar.component';
 import { ContentComponent } from './content.component';
-import {SearchResultsComponent} from './searchResults.component';
-import {NoResultsComponent} from './noResults.component';
+import { SearchResultsComponent } from './searchResults.component';
+import { NoResultsComponent } from './noResults.component';
 
 @NgModule({
   declarations: [
