@@ -1,7 +1,7 @@
 <div id="header">
   <span id="logo">qWiki</span>
-  <input #searchBox id="searchBox" class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm"
-         (keydown.enter)="searchArticle(searchTerm)" (keydown)="getAutocompleteResults(searchTerm)" list="autocomplete"/>
+  <input #searchBox id="searchBox" class="form-control" type="text" placeholder="Search" list="autocomplete" [(ngModel)]="searchTerm"
+         (keydown.enter)="searchArticle(searchTerm)" (keyup)="getAutocompleteResults(searchTerm)" />
   <datalist id="autocomplete">
     <option *ngFor="let result of autocompleteList" value={{result}}></option>
   </datalist>
